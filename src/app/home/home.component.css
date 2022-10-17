@@ -1,0 +1,18 @@
+body{
+    height: 100vh;
+    display: grid;
+    place-content: center;
+
+}
+.avisos{
+    border-radius: 50px;
+    width: 50vw;
+    height: 60vh;
+    background-color:#17bebb;
+}
+.aviso{
+    width: 50vw;
+    height: 20vh;
+    border: 4px;
+    border-color: black;
+}
