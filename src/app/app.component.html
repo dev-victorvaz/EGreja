@@ -1,12 +1,15 @@
 <nav>
   <p>E-greja</p>
   <div class="links">
-    <button routerLink="home-component" routerLinkActive="active" ariaCurrentWhenActive="page">Avisos</button>
-    <button >Membros</button>
+    <button routerLink="avisos" routerLinkActive="active">Avisos</button>
+    <button routerLink="membros" routerLinkActive="active">Membros</button>
     <button>Organização de Eventos</button>
     <button>Encontre seu culto</button>
   </div>
-  <button routerLink="login-component" routerLinkActive="active" ariaCurrentWhenActive="page">Entrar</button>
+    <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Entrar</button>
+    <div *ngIf="afAuth.authState | async as user" (click)="signOut()">
+      <p> Bem Vindo <br> {{user.displayName}} </p>
+    </div>
 </nav>
 
 <router-outlet></router-outlet>
