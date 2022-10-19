@@ -1,18 +1,33 @@
-body{
-    height: 100vh;
+div.main{
     display: grid;
     place-content: center;
+}
+div.quadro-de-avisos{
+    border-radius: 9px;
+    background-color:white;
+    border: 1px solid;
+    border-color: #f1f1f1;
+}
+div.lista-de-avisos{
+    min-width: 45vw;
+    min-height: 20vh;
+    background-color: #FAFAFA;
+    margin: 1vw;
+    border: 0.5px solid;
+    border-radius: 9px;
+    border-color: #313131;
+}
 
+h2.aviso-titulo {
+    padding-left: 1vw;
 }
-.avisos{
-    border-radius: 50px;
-    width: 50vw;
-    height: 60vh;
-    background-color:#17bebb;
+
+p.aviso-texto {
+    padding-left: 0.5vw;
 }
-.aviso{
+
+input#textoaviso{
+    border-radius: 9px;
     width: 50vw;
-    height: 20vh;
-    border: 4px;
-    border-color: black;
+    min-height: 10vh;
 }

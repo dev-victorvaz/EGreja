@@ -1,9 +1,9 @@
 <nav>
-  <p>E-greja</p>
+  <a routerLink="/"><h1 class="logo">E-greja</h1></a>
   <div class="links">
     <button routerLink="avisos" routerLinkActive="active">Avisos</button>
     <button routerLink="membros" routerLinkActive="active">Membros</button>
-    <button>Organização de Eventos</button>
+    <button routerLink="organizacao-de-eventos">Organização de Eventos</button>
     <button>Encontre seu culto</button>
   </div>
     <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Entrar</button>
@@ -12,4 +12,6 @@
     </div>
 </nav>
 
-<router-outlet></router-outlet>
+<div class="content" role="main">
+  <router-outlet></router-outlet>
+</div>

@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  urlBase: "https://e-greja-89c9b-default-rtdb.firebaseio.com/crud/",
+  appClientId: "e-greja",
   production: false,
   firebaseConfig: {
   apiKey: "AIzaSyC21R32ryIWf2lu9ZjThJ578j_txz8_uFA",
