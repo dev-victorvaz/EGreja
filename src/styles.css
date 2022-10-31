@@ -7,7 +7,6 @@ html{
 }
 body{
     overflow-x: hidden;
-    overflow-y: hidden;
     margin: 0%;
     padding: 0;
 }
@@ -22,7 +21,7 @@ nav{
     justify-content: space-between;
 }
 .links{
-    width: 50vw;
+    
     display: flex;
 }
 nav button{

@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OrganizacaoDeEventosComponent } from './organizacao-de-eventos.component';
 
+import 'jasmine';
 describe('OrganizacaoDeEventosComponent', () => {
   let component: OrganizacaoDeEventosComponent;
   let fixture: ComponentFixture<OrganizacaoDeEventosComponent>;
