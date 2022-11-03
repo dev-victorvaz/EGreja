@@ -5,11 +5,10 @@
     <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Membros</button>
     <button *ngIf="afAuth.authState | async as user" routerLink="membros" routerLinkActive="active">Membros</button>
     <button routerLink="organizacao-de-eventos">Organização de Eventos</button>
-    <button>Encontre seu culto</button>
   </div>
     <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Entrar</button>
     <div *ngIf="afAuth.authState | async as user" (click)="signOut()">
-      <p> Bem Vindo <br> {{user.displayName}} </p>
+      <button> Bem Vindo <br> {{user.displayName}} </button>
     </div>
 </nav>
 
