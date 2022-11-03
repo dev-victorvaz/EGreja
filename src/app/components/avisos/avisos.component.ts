@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute } from '@angular/router';
 import { observable } from 'rxjs';
 import { Aviso } from 'src/app/models/aviso.model';
@@ -16,7 +17,7 @@ export class AvisosComponent implements OnInit, OnDestroy {
   id: string = "";
   avisobutton: string = "Adicionar aviso"
 
-  constructor(private avisoService: AvisoService, private route: ActivatedRoute) { }
+  constructor(private avisoService: AvisoService, private route: ActivatedRoute, public afAuth: AngularFireAuth) { }
 
   ngOnInit(): void {
     this.lerAvisos();

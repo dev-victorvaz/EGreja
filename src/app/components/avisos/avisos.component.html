@@ -1,20 +1,21 @@
 <div class="main">
     <h1>Quadro de avisos</h1>
-    <div class="addAvisos">
+    <div class="addAvisos" *ngIf="afAuth.authState | async as user">
         <label>Título:</label>
         <input type="text" id="tituloaviso" name="tituloaviso" placeholder="Coloque o título do aviso aqui." [(ngModel)]="aviso.titulo" />
         <br>
         <label>Conteúdo:</label>
         <br>
         <input type="text" id="textoaviso" name="textoaviso" placeholder="Coloque o conteúdo do aviso aqui." [(ngModel)]="aviso.texto" />
+        <br>
+        <button (click)="postar()">{{avisobutton}}</button>
     </div>
-    <button (click)="postar()">{{avisobutton}}</button>
     <div class="quadro-de-avisos">
         <div class="lista-de-avisos" *ngFor="let aviso of listaAviso">
             <h2 class="aviso-titulo">{{aviso.titulo}}</h2>
             <p class="aviso-texto">{{aviso.texto}}</p>
-            <button type="button" routerLink="/avisos/{{aviso.id}}">Editar</button>
-            <button type="button" (click)="excluirAviso(aviso.id)">Excluir</button>
+            <button type="button" routerLink="/avisos/{{aviso.id}}" *ngIf="afAuth.authState | async as user">Editar</button>
+            <button type="button" (click)="excluirAviso(aviso.id)" *ngIf="afAuth.authState | async as user">Excluir</button>
         </div>
     </div>
 </div>

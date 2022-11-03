@@ -1,8 +1,9 @@
-<nav>
+<nav class="menu">
   <a routerLink="/"><h1 class="logo">E-greja</h1></a>
   <div class="links">
     <button routerLink="avisos" routerLinkActive="active">Avisos</button>
-    <button routerLink="membros" routerLinkActive="active">Membros</button>
+    <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Membros</button>
+    <button *ngIf="afAuth.authState | async as user" routerLink="membros" routerLinkActive="active">Membros</button>
     <button routerLink="organizacao-de-eventos">Organização de Eventos</button>
   </div>
     <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Entrar</button>
