@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import firebase from  'firebase/compat/app'
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,6 @@ import firebase from  'firebase/compat/app'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public afAuth: AngularFireAuth){}
+  constructor(public authService: AuthService){}
   title = 'e-greja';
-
-  signIn(){
-    const googleAuthProvider =  new firebase.auth.GoogleAuthProvider();
-    this.afAuth.signInWithPopup(googleAuthProvider);
-  }
-
-  signOut(){
-    this.afAuth.signOut();
-    window.location.reload();
-  }
 }

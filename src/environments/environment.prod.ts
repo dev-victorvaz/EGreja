@@ -3,7 +3,6 @@ export const environment = {
   appClientId: "e-greja",
   production: true,
   firebaseConfig: {
-    urlBase: "https://e-greja-89c9b-default-rtdb.firebaseio.com/crud/",
     appClientId: "e-greja",
     apiKey: "AIzaSyC21R32ryIWf2lu9ZjThJ578j_txz8_uFA",
     authDomain: "e-greja-89c9b.firebaseapp.com",

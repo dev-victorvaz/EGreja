@@ -2,13 +2,13 @@
   <a routerLink="/"><h1 class="logo">E-greja</h1></a>
   <div class="links">
     <button routerLink="avisos" routerLinkActive="active">Avisos</button>
-    <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Membros</button>
-    <button *ngIf="afAuth.authState | async as user" routerLink="membros" routerLinkActive="active">Membros</button>
+    <button *ngIf="(authService.isLoggedIn) === false" routerLink="/sign-in">Membros</button>
+    <button *ngIf="(authService.isLoggedIn) === true" routerLink="membros" routerLinkActive="active">Membros</button>
     <button routerLink="organizacao-de-eventos">Organização de Eventos</button>
   </div>
-    <button *ngIf="(afAuth.authState | async) === null" (click)="signIn()">Entrar</button>
-    <div *ngIf="afAuth.authState | async as user" (click)="signOut()">
-      <button> Bem Vindo <br> {{user.displayName}} </button>
+    <button *ngIf="(authService.isLoggedIn) === false" routerLink="/sign-in">Entrar</button>
+    <div *ngIf="(authService.isLoggedIn) === true" (click)="authService.SignOut()">
+      <button>Sair</button>
     </div>
 </nav>
 
