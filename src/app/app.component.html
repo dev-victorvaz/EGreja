@@ -5,6 +5,7 @@
     <button *ngIf="(authService.isLoggedIn) === false" routerLink="/sign-in">Membros</button>
     <button *ngIf="(authService.isLoggedIn) === true" routerLink="membros" routerLinkActive="active">Membros</button>
     <button routerLink="organizacao-de-eventos">Organização de Eventos</button>
+    <button routerLink="dashboard">Dashboard</button>
   </div>
     <button *ngIf="(authService.isLoggedIn) === false" routerLink="/sign-in">Entrar</button>
     <div *ngIf="(authService.isLoggedIn) === true" (click)="authService.SignOut()">

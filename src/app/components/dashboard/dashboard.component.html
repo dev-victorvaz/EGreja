@@ -41,6 +41,11 @@
                   <p>User ID: <strong>{{user.uid}}</strong></p>
                   <p>Email: <strong>{{user.email}}</strong></p>
                   <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+                  <p>
+                    <input type="text" id="nomee" name="nomee" placeholder="Coloque a alteção do nome aqui" [(ngModel)]="this.nome" />
+                    <input type="text" id="fotoo" name="fotoo" placeholder="Coloque o URL da foto" [(ngModel)]="this.foto" />
+                    <button (click)="authService.editProfile(this.nome, this.foto)">Atualizar</button>
+                  </p>
                 </div>
               </div>
             </div>

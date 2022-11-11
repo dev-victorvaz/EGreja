@@ -1,15 +1,19 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
+import { getAuth, updateProfile } from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import firebase from 'firebase/compat';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   userData: any; // Save logged in user data
   constructor(
@@ -127,5 +131,22 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
+  }
+
+  editProfile(nome: string, foto: string) {
+    const auth = getAuth();
+
+    if (auth.currentUser != null) {
+      updateProfile(auth.currentUser, {
+        displayName: nome,
+        photoURL: foto
+      }).then(() => {
+        // Profile updated!
+        // ...
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
+    }
   }
 }
