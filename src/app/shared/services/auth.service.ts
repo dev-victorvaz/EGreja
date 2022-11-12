@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../services/user';
 import * as auth from 'firebase/auth';
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile, updateEmail, updatePassword } from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -10,6 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -145,6 +146,35 @@ export class AuthService {
         // ...
       }).catch((error) => {
         // An error occurred
+        // ...
+      });
+    }
+  }
+
+  editEmail(email: string) {
+    const auth = getAuth();
+
+    if (auth.currentUser != null) {
+      updateEmail(auth.currentUser, email).then(() => {
+        // Email updated!
+        // ...
+      }).catch((error) => {
+        // An error occurred
+        // ...
+      });
+    }
+  }
+
+  updatePassword(newPassword: string) {
+    const auth = getAuth();
+
+    const user = auth.currentUser;
+
+    if (user != null) {
+      updatePassword(user, newPassword).then(() => {
+        // Update successful.
+      }).catch((error) => {
+        // An error ocurred
         // ...
       });
     }

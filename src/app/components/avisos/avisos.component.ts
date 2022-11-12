@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { observable } from 'rxjs';
 import { Aviso } from 'src/app/models/aviso.model';
 import { AvisoService } from 'src/app/services/aviso.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-avisos',
@@ -15,9 +16,10 @@ export class AvisosComponent implements OnInit, OnDestroy {
   listaAviso = new Array<Aviso>();
   sub: any;
   id: string = "";
-  avisobutton: string = "Adicionar aviso"
+  avisobutton: string = "Adicionar aviso";
+  novoTopico: boolean = false;
 
-  constructor(private avisoService: AvisoService, private route: ActivatedRoute, public afAuth: AngularFireAuth) { }
+  constructor(private avisoService: AvisoService, private route: ActivatedRoute, public afAuth: AngularFireAuth, public router: Router) { }
 
   ngOnInit(): void {
     this.lerAvisos();
@@ -27,6 +29,7 @@ export class AvisosComponent implements OnInit, OnDestroy {
       if (this.id) {
         this.avisobutton = "Salvar edição"
         this.lerAviso(this.id);
+        this.publicarNovoAviso();
       }
     })
   }
@@ -97,4 +100,12 @@ export class AvisosComponent implements OnInit, OnDestroy {
     })
   }
 
+  publicarNovoAviso() {
+    this.novoTopico = true;
+  }
+
+  cancelarAviso() {
+    this.novoTopico = false;
+    this.router.navigate(['avisos']);
+  }
 }

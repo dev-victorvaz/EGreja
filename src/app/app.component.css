@@ -11,7 +11,7 @@ nav.menu{
     margin: 0;
     padding: 0;
     width: 100vw;
-    background-color: #17bebb;
+    background-color: #131313;
     display: flex;
     justify-content: space-between;
 }
@@ -20,12 +20,14 @@ nav.menu button{
     text-decoration: none;
     color: #f7fdf8;
     font-size: 20px;
-    background-color:#17bebb;
+    background-color:#131313;
     border: 0;
     padding: 13px;
     margin-right: 10px;
+    border-radius: 0;
 }
 nav.menu button:hover{
+    background-color: #232323;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
@@ -43,4 +45,15 @@ nav.menu p   {
 div.links{
     width: 50vw;
     display: flex;
+}
+
+div.content{
+    border-radius: 6px;
+    background-color:white;
+    border: 1px solid;
+    border-color: #f1f1f1;
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
 }
