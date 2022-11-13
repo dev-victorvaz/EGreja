@@ -25,6 +25,8 @@ nav.menu button{
     padding: 13px;
     margin-right: 10px;
     border-radius: 0;
+    height: 100%;
+    margin-top: 0;
 }
 nav.menu button:hover{
     background-color: #232323;

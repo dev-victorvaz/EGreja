@@ -120,7 +120,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
-      email: user.email,
+      email: user.email
     };
     return userRef.set(userData, {
       merge: true,

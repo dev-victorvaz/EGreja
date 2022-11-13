@@ -5,6 +5,7 @@ import { observable } from 'rxjs';
 import { Aviso } from 'src/app/models/aviso.model';
 import { AvisoService } from 'src/app/services/aviso.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-avisos',
@@ -19,7 +20,13 @@ export class AvisosComponent implements OnInit, OnDestroy {
   avisobutton: string = "Adicionar aviso";
   novoTopico: boolean = false;
 
-  constructor(private avisoService: AvisoService, private route: ActivatedRoute, public afAuth: AngularFireAuth, public router: Router) { }
+  constructor(
+    private avisoService: AvisoService,
+    private route: ActivatedRoute,
+    public afAuth: AngularFireAuth,
+    public router: Router,
+    public authService: AuthService
+    ) { }
 
   ngOnInit(): void {
     this.lerAvisos();
@@ -85,10 +92,13 @@ export class AvisosComponent implements OnInit, OnDestroy {
     if(this.id) {
       this.alteracaoAviso();
       this.lerAvisos;
+      this.aviso.titulo = "";
+      this.aviso.texto = "";
     }
     else {
       this.postarAvisos();
       this.lerAvisos();
+      this.router.navigate(['avisos']);
     }
   }
 
