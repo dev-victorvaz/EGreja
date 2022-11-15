@@ -1,1 +1,169 @@
-<p>Oi</p>
+<div class="main">
+    <h2>Domingo:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarDomingo(true)">Novo evento no domingo</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoDomingo">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="domingo.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="domingo.horario" />
+            <br>
+            <button (click)="postarDomingo()">Salvar</button>
+            <button (click)="criarDomingo(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let domingo of listaDomingo">
+            <p class="conteudo">{{domingo.conteudo}}</p>
+            <p class="horario">{{domingo.horario}}</p>
+            <button type="button" (click)="excluirDomingo(domingo.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Segunda-feira:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSegunda(true)">Novo evento na segunda-feira</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSegunda">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="segunda.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="segunda.horario" />
+            <br>
+            <button (click)="postarSegunda()">Salvar</button>
+            <button (click)="criarSegunda(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let segunda of listaSegunda">
+            <p class="conteudo">{{segunda.conteudo}}</p>
+            <p class="horario">{{segunda.horario}}</p>
+            <button type="button" (click)="excluirSegunda(segunda.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Terça-feira:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarTerca(true)">Novo evento na terça-feira</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoTerca">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="terca.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="terca.horario" />
+            <br>
+            <button (click)="postarTerca()">Salvar</button>
+            <button (click)="criarTerca(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let terca of listaTerca">
+            <p class="conteudo">{{terca.conteudo}}</p>
+            <p class="horario">{{terca.horario}}</p>
+            <button type="button" (click)="excluirTerca(terca.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Quarta-feira:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarQuarta(true)">Novo evento na quarta-feira</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoQuarta">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="quarta.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="quarta.horario" />
+            <br>
+            <button (click)="postarQuarta()">Salvar</button>
+            <button (click)="criarQuarta(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let quarta of listaQuarta">
+            <p class="conteudo">{{quarta.conteudo}}</p>
+            <p class="horario">{{quarta.horario}}</p>
+            <button type="button" (click)="excluirQuarta(quarta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Quinta-feira:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarQuinta(true)">Novo evento na quinta-feira</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoQuinta">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="quinta.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="quinta.horario" />
+            <br>
+            <button (click)="postarQuinta()">Salvar</button>
+            <button (click)="criarQuinta(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let quinta of listaQuinta">
+            <p class="conteudo">{{quinta.conteudo}}</p>
+            <p class="horario">{{quinta.horario}}</p>
+            <button type="button" (click)="excluirQuinta(quinta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Sexta-feira:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSexta(true)">Novo evento na sexta-feira</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSexta">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="sexta.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="sexta.horario" />
+            <br>
+            <button (click)="postarSexta()">Salvar</button>
+            <button (click)="criarSexta(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let sexta of listaSexta">
+            <p class="conteudo">{{sexta.conteudo}}</p>
+            <p class="horario">{{sexta.horario}}</p>
+            <button type="button" (click)="excluirSexta(sexta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+
+    <h2>Sábado:</h2>
+    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSabado(true)">Novo evento na sábado</button>
+    <div class="quadro">
+        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSabado">
+            <br>
+            <label>Conteúdo:</label>
+            <br>
+            <input type="text" id="conteudo" name="conteudo" placeholder="Coloque o conteúdo do evento aqui." [(ngModel)]="sabado.conteudo" />
+            <br>
+            <label>Horário:</label>
+            <br>
+            <input type="text" id="horario" name="horario" placeholder="Coloque a hora aqui." [(ngModel)]="sabado.horario" />
+            <br>
+            <button (click)="postarSabado()">Salvar</button>
+            <button (click)="criarSabado(false)">Cancelar</button>
+        </div>
+        
+        <div class="lista" *ngFor="let sabado of listaSabado">
+            <p class="conteudo">{{sabado.conteudo}}</p>
+            <p class="horario">{{sabado.horario}}</p>
+            <button type="button" (click)="excluirSabado(sabado.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+        </div>
+    </div>
+</div>

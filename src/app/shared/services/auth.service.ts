@@ -10,6 +10,7 @@ import {
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
+import { HttpRequest } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

@@ -49,7 +49,7 @@ export class DashboardComponent implements OnInit {
       this.alterarSenhaFuncao(false);
     }
     else {
-      alert('A senha precisa ter pelo menos 6 caracteres.');
+      alert('A senha precisa ter pelo menos 7 caracteres.');
     }
   }
 }

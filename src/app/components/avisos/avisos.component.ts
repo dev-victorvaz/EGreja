@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { ActivatedRoute } from '@angular/router';
 import { observable } from 'rxjs';
 import { Aviso } from 'src/app/models/aviso.model';
@@ -23,7 +22,6 @@ export class AvisosComponent implements OnInit, OnDestroy {
   constructor(
     private avisoService: AvisoService,
     private route: ActivatedRoute,
-    public afAuth: AngularFireAuth,
     public router: Router,
     public authService: AuthService
     ) { }
@@ -71,6 +69,9 @@ export class AvisosComponent implements OnInit, OnDestroy {
     let observable = this.avisoService.post(this.aviso);
     observable.subscribe(s => {
       console.log("Criando novo aviso: ", s);
+      this.aviso.titulo = "";
+      this.aviso.texto = "";
+      this.lerAvisos();
     })
   }
 
@@ -84,21 +85,20 @@ export class AvisosComponent implements OnInit, OnDestroy {
   alteracaoAviso() {
     let observable = this.avisoService.put(this.id, this.aviso);
     observable.subscribe(s => {
-      console.log("Criando novo aviso: ", s);
+      console.log("Alterando aviso: ", s);
+      this.lerAvisos();
+      this.aviso.titulo = "";
+      this.aviso.texto = "";
+      this.router.navigate(['avisos']);
     })
   }
 
   postar() {
     if(this.id) {
       this.alteracaoAviso();
-      this.lerAvisos;
-      this.aviso.titulo = "";
-      this.aviso.texto = "";
     }
     else {
       this.postarAvisos();
-      this.lerAvisos();
-      this.router.navigate(['avisos']);
     }
   }
 

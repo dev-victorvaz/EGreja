@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Aviso } from '../models/aviso.model';
@@ -8,9 +8,11 @@ import { Aviso } from '../models/aviso.model';
   providedIn: 'root'
 })
 export class AvisoService {
-  entidade = "avisos"
+  entidade = "avisos";
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
   getAll(): Observable<Aviso[]> {
     return this.http.get<Aviso[]>(`${environment.urlBase}${environment.appClientId}/${this.entidade}.json`);
