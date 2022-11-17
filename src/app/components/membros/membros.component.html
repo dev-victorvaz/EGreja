@@ -1,0 +1,13 @@
+<div class="main">
+    <h1>Lista de Membros</h1>
+    <div class="quadro-de-avisos">
+        <div class="lista-de-avisos" *ngFor="let usuario of listaMembro">
+            <table>
+                <tr>
+                    <th><img class="photo" src="{{(usuario.photoURL) ? usuario.photoURL : '/assets/dummy-user.png'}}" alt="{{usuario.displayName}}" height="64"></th>
+                    <th class="usuario-nome">{{usuario.displayName}}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
