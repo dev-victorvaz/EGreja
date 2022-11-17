@@ -16,19 +16,30 @@
                 <div class="media-body">
                   <div [hidden]="editarNome">
                     <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                    <p>E-mail: <strong>{{user.email}}</strong></p>
-                    <button (click)="editarNomeFuncao(true)">Editar</button>
+                    <button (click)="editarNomeFuncao(true)">Alterar nome e foto</button>
                   </div>
-                  
+
                   <div [hidden]="!editarNome">
+                    <label>Foto:</label>
+                    <input type="text" id="nomee" name="nomee" placeholder="Coloque a URL da foto aqui." [(ngModel)]="this.foto"/>
+                    <br>
                     <label>Nome:</label>
                     <input type="text" id="nomee" name="nomee" placeholder="Coloque a alteção do nome aqui." [(ngModel)]="this.nome"/>
                     <br>
-                    <label>E-mail:</label>
-                    <input type="text" id="emaill" name="emaill" placeholder="Coloque a alteção do e-mail aqui." [(ngModel)]="this.email"/>
-                    <br>
                     <button (click)="atualizarPerfil()">Salvar</button>
                     <button (click)="editarNomeFuncao(false)">Cancelar</button>
+                  </div>
+
+                  <div [hidden]="editarEmail">
+                    <p>E-mail: <strong>{{user.email}}</strong></p>
+                    <button (click)="editarEmailFuncao(true)">Alterar e-mail</button>
+                  </div>
+
+                  <div [hidden]="!editarEmail"><label>E-mail:</label>
+                    <input type="text" id="emaill" name="emaill" placeholder="Coloque a alteção do e-mail aqui." [(ngModel)]="this.email"/>
+                    <br>
+                    <button (click)="atualizarEmail()">Salvar</button>
+                    <button (click)="editarEmailFuncao(false)">Cancelar</button>
                   </div>
 
                   <div [hidden]="user.emailVerified">

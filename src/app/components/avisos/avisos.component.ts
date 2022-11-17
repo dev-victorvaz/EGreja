@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { observable } from 'rxjs';
 import { Aviso } from 'src/app/models/aviso.model';
 import { AvisoService } from 'src/app/services/aviso.service';
 import { Router } from '@angular/router';

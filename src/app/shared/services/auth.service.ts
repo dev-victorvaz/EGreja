@@ -143,8 +143,7 @@ export class AuthService {
         displayName: nome,
         photoURL: foto
       }).then(() => {
-        // Profile updated!
-        // ...
+        this.SetUserData(this.userData)
       }).catch((error) => {
         // An error occurred
         // ...
@@ -157,7 +156,7 @@ export class AuthService {
 
     if (auth.currentUser != null) {
       updateEmail(auth.currentUser, email).then(() => {
-        // Email updated!
+        this.SetUserData(this.userData)
         // ...
       }).catch((error) => {
         // An error occurred

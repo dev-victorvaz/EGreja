@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   editarNome: boolean = false;
   alterarSenha: boolean = false;
   novaSenha: string = "";
+  editarEmail: boolean = false;
 
   constructor(
     public authService: AuthService,
@@ -33,6 +34,10 @@ export class DashboardComponent implements OnInit {
     this.editarNome = decisao;
   }
 
+  editarEmailFuncao(decisao: boolean) {
+    this.editarEmail = decisao;
+  }
+
   alterarSenhaFuncao(decisao: boolean) {
     this.alterarSenha = decisao;
   }
@@ -41,6 +46,11 @@ export class DashboardComponent implements OnInit {
     this.authService.editProfile(this.nome, this.foto);
     this.authService.editEmail(this.email);
     this.editarNomeFuncao(false);
+  }
+
+  atualizarEmail() {
+    this.authService.editEmail(this.email);
+    this.editarEmailFuncao(false);
   }
 
   aplicarNovaSenha() {
