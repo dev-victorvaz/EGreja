@@ -1,9 +1,11 @@
-input#conteudo {
+#conteudo {
     width: 100%;
     height: 150px;
     padding: 12px 20px;
     box-sizing: border-box;
     resize: none;
+    border-radius: 3px;
+    border-color: #f1f1f1;
 }
 
 input#horario {
@@ -11,4 +13,11 @@ input#horario {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+}
+
+div.quadro {
+    border: 1px solid;
+    border-color: #f1f1f1;
+    border-radius: 2px;
+    padding: 5px;
 }

@@ -9,7 +9,7 @@
             <br>
             <label>Conteúdo:</label>
             <br>
-            <input type="text" id="textoaviso" name="textoaviso" placeholder="Coloque o conteúdo do aviso aqui." [(ngModel)]="aviso.texto" />
+            <textarea type="text" id="textoaviso" name="textoaviso" placeholder="Coloque o conteúdo do aviso aqui." [(ngModel)]="aviso.texto"></textarea>
             <br>
             <button (click)="postar()">{{avisobutton}}</button>
             <button (click)="cancelarAviso()">Cancelar</button>
