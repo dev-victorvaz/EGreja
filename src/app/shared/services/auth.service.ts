@@ -11,12 +11,17 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import firebase from 'firebase/compat';
 import { HttpRequest } from '@angular/common/http';
+import { getFirestore, collection, getDocs, setDoc, doc, getDoc } from 'firebase/firestore';
+import { environment } from 'src/environments/environment';
+import { initializeApp } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class AuthService {
+  app = initializeApp(environment.firebaseConfig);
+  db = getFirestore(this.app);
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -177,6 +182,27 @@ export class AuthService {
         // An error ocurred
         // ...
       });
+    }
+  }
+
+  async setManager(uid: string) {
+    await setDoc(doc(this.db, "managers", uid), {
+      uid: uid
+    });
+    console.log(uid + " agora é administrador.");
+  }
+
+  async isManager(uid: string) {
+    const docRef = doc(this.db, "managers", uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      console.log("É administrador:", docSnap.data());
+      return true;
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("Não é administrador.");
+      return false;
     }
   }
 }

@@ -17,6 +17,7 @@ export class AvisosComponent implements OnInit, OnDestroy {
   id: string = "";
   avisobutton: string = "Adicionar aviso";
   novoTopico: boolean = false;
+  isAdmin = false;
 
   constructor(
     private avisoService: AvisoService,
@@ -35,7 +36,8 @@ export class AvisosComponent implements OnInit, OnDestroy {
         this.lerAviso(this.id);
         this.publicarNovoAviso();
       }
-    })
+    });
+    this.verificarAdmin();
   }
 
   ngOnDestroy(): void {
@@ -116,5 +118,17 @@ export class AvisosComponent implements OnInit, OnDestroy {
   cancelarAviso() {
     this.novoTopico = false;
     this.router.navigate(['avisos']);
+  }
+
+  async verificarAdmin() {
+    if (!this.authService.isLoggedIn) {
+      this.isAdmin = false;
+    }
+    else if (await this.authService.isManager(this.authService.userData.uid)) {
+      this.isAdmin = true;
+    }
+    else {
+      this.isAdmin = false;
+    }
   }
 }

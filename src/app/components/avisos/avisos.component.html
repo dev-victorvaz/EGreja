@@ -1,8 +1,8 @@
 <div class="main">
     <h1>Quadro de avisos</h1>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="publicarNovoAviso()">Novo Aviso</button>
+    <button *ngIf="isAdmin" (click)="publicarNovoAviso()">Novo Aviso</button>
     <div class="quadro-de-avisos">
-        <div class="addAvisos" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoTopico">
+        <div class="addAvisos" *ngIf="isAdmin" [hidden]="!novoTopico">
             <br>
             <label>Título:</label>
             <input type="text" id="tituloaviso" name="tituloaviso" placeholder="Coloque o título do aviso aqui." [(ngModel)]="aviso.titulo" />
@@ -18,8 +18,8 @@
         <div class="lista-de-avisos" *ngFor="let aviso of listaAviso">
             <h2 class="aviso-titulo">{{aviso.titulo}}</h2>
             <p class="aviso-texto">{{aviso.texto}}</p>
-            <button type="button" routerLink="/avisos/{{aviso.id}}" *ngIf="(authService.isLoggedIn) === true">Editar</button>
-            <button type="button" (click)="excluirAviso(aviso.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" routerLink="/avisos/{{aviso.id}}" *ngIf="isAdmin">Editar</button>
+            <button type="button" (click)="excluirAviso(aviso.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 </div>

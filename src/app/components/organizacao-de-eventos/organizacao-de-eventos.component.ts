@@ -43,6 +43,7 @@ export class OrganizacaoDeEventosComponent implements OnInit {
   novoQuinta: boolean = false;
   novoSexta: boolean = false;
   novoSabado: boolean = false;
+  isAdmin: boolean = false;
 
   constructor(
     private domingoService: DomingoService,
@@ -68,7 +69,8 @@ export class OrganizacaoDeEventosComponent implements OnInit {
     this.sub = this.route.params.subscribe(params => {
       this.id = params["id"];
       console.log("ID: ", this.id);
-    })
+    });
+    this.verificarAdmin();
   }
 
   ngOnDestroy(): void {
@@ -404,5 +406,17 @@ export class OrganizacaoDeEventosComponent implements OnInit {
 
   criarSabado(decisao: boolean) {
     this.novoSabado = decisao;
+  }
+
+  async verificarAdmin() {
+    if (!this.authService.isLoggedIn) {
+      this.isAdmin = false;
+    }
+    else if (await this.authService.isManager(this.authService.userData.uid)) {
+      this.isAdmin = true;
+    }
+    else {
+      this.isAdmin = false;
+    }
   }
 }

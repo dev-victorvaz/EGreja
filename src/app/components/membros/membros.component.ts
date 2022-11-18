@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getFirestore ,collection, getDocs } from "firebase/firestore";
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -11,12 +12,16 @@ import { environment } from 'src/environments/environment.prod';
 export class MembrosComponent implements OnInit {
   app = initializeApp(environment.firebaseConfig);
   db = getFirestore(this.app);
+  isAdmin = false;
   listaMembro = new Array<any>();
 
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.obterMembros();
+    this.verificarAdmin();
   }
 
   async obterMembros() {
@@ -28,4 +33,12 @@ export class MembrosComponent implements OnInit {
     });
   }
 
+  async verificarAdmin() {
+    if (await this.authService.isManager(this.authService.userData.uid)) {
+      this.isAdmin = true;
+    }
+    else {
+      this.isAdmin = false;
+    }
+  }
 }

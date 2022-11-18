@@ -6,6 +6,7 @@
                 <tr>
                     <th><img class="photo" src="{{(usuario.photoURL) ? usuario.photoURL : '/assets/dummy-user.png'}}" alt="{{usuario.displayName}}" height="64"></th>
                     <th class="usuario-nome">{{usuario.displayName}}</th>
+                    <th><button *ngIf="isAdmin" (click)="authService.setManager(usuario.uid)">Tornar Admin</button></th>
                 </tr>
             </table>
         </div>

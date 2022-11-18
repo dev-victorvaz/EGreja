@@ -1,8 +1,8 @@
 <div class="main">
     <h2>Domingo:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarDomingo(true)">Novo evento no domingo</button>
+    <button *ngIf="isAdmin" (click)="criarDomingo(true)">Novo evento no domingo</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoDomingo">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoDomingo">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -19,14 +19,14 @@
         <div class="lista" *ngFor="let domingo of listaDomingo">
             <p class="conteudo">{{domingo.conteudo}}</p>
             <p class="horario">{{domingo.horario}}</p>
-            <button type="button" (click)="excluirDomingo(domingo.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirDomingo(domingo.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Segunda-feira:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSegunda(true)">Novo evento na segunda-feira</button>
+    <button *ngIf="isAdmin" (click)="criarSegunda(true)">Novo evento na segunda-feira</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSegunda">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoSegunda">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -43,14 +43,14 @@
         <div class="lista" *ngFor="let segunda of listaSegunda">
             <p class="conteudo">{{segunda.conteudo}}</p>
             <p class="horario">{{segunda.horario}}</p>
-            <button type="button" (click)="excluirSegunda(segunda.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirSegunda(segunda.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Terça-feira:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarTerca(true)">Novo evento na terça-feira</button>
+    <button *ngIf="isAdmin" (click)="criarTerca(true)">Novo evento na terça-feira</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoTerca">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoTerca">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -67,14 +67,14 @@
         <div class="lista" *ngFor="let terca of listaTerca">
             <p class="conteudo">{{terca.conteudo}}</p>
             <p class="horario">{{terca.horario}}</p>
-            <button type="button" (click)="excluirTerca(terca.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirTerca(terca.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Quarta-feira:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarQuarta(true)">Novo evento na quarta-feira</button>
+    <button *ngIf="isAdmin" (click)="criarQuarta(true)">Novo evento na quarta-feira</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoQuarta">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoQuarta">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -91,14 +91,14 @@
         <div class="lista" *ngFor="let quarta of listaQuarta">
             <p class="conteudo">{{quarta.conteudo}}</p>
             <p class="horario">{{quarta.horario}}</p>
-            <button type="button" (click)="excluirQuarta(quarta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirQuarta(quarta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Quinta-feira:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarQuinta(true)">Novo evento na quinta-feira</button>
+    <button *ngIf="isAdmin" (click)="criarQuinta(true)">Novo evento na quinta-feira</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoQuinta">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoQuinta">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -115,14 +115,14 @@
         <div class="lista" *ngFor="let quinta of listaQuinta">
             <p class="conteudo">{{quinta.conteudo}}</p>
             <p class="horario">{{quinta.horario}}</p>
-            <button type="button" (click)="excluirQuinta(quinta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirQuinta(quinta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Sexta-feira:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSexta(true)">Novo evento na sexta-feira</button>
+    <button *ngIf="isAdmin" (click)="criarSexta(true)">Novo evento na sexta-feira</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSexta">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoSexta">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -139,14 +139,14 @@
         <div class="lista" *ngFor="let sexta of listaSexta">
             <p class="conteudo">{{sexta.conteudo}}</p>
             <p class="horario">{{sexta.horario}}</p>
-            <button type="button" (click)="excluirSexta(sexta.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirSexta(sexta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 
     <h2>Sábado:</h2>
-    <button *ngIf="(authService.isLoggedIn) === true" (click)="criarSabado(true)">Novo evento na sábado</button>
+    <button *ngIf="isAdmin" (click)="criarSabado(true)">Novo evento na sábado</button>
     <div class="quadro">
-        <div class="add" *ngIf="(authService.isLoggedIn) === true" [hidden]="!novoSabado">
+        <div class="add" *ngIf="isAdmin" [hidden]="!novoSabado">
             <br>
             <label>Conteúdo:</label>
             <br>
@@ -163,7 +163,7 @@
         <div class="lista" *ngFor="let sabado of listaSabado">
             <p class="conteudo">{{sabado.conteudo}}</p>
             <p class="horario">{{sabado.horario}}</p>
-            <button type="button" (click)="excluirSabado(sabado.id)" *ngIf="(authService.isLoggedIn) === true">Excluir</button>
+            <button type="button" (click)="excluirSabado(sabado.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
 </div>
