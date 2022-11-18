@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import { getFirestore ,collection, getDocs } from "firebase/firestore";
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { User } from 'src/app/shared/services/user';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -13,7 +14,9 @@ export class MembrosComponent implements OnInit {
   app = initializeApp(environment.firebaseConfig);
   db = getFirestore(this.app);
   isAdmin = false;
+  verPerfilVariavel = false;
   listaMembro = new Array<any>();
+  usuarioVisualizado = new User();
 
   constructor(
     public authService: AuthService
@@ -22,6 +25,7 @@ export class MembrosComponent implements OnInit {
   ngOnInit(): void {
     this.obterMembros();
     this.verificarAdmin();
+    this.definirPerfilInicial(this.authService.userData);
   }
 
   async obterMembros() {
@@ -41,4 +45,25 @@ export class MembrosComponent implements OnInit {
       this.isAdmin = false;
     }
   }
+
+  verPerfil(decisao: boolean) {
+    this.verPerfilVariavel = decisao;
+  }
+
+    visualizarPerfil(usuario: User) {
+      this.usuarioVisualizado.uid = usuario.uid
+      this.usuarioVisualizado.displayName = usuario.displayName;
+      this.usuarioVisualizado.photoURL = usuario.photoURL;
+      this.usuarioVisualizado.email = usuario.email;
+      this.usuarioVisualizado.emailVerified = usuario.emailVerified;
+      this.verPerfil(true);
+    }
+
+    definirPerfilInicial(usuario: User) {
+      this.usuarioVisualizado.uid = usuario.uid
+      this.usuarioVisualizado.displayName = usuario.displayName;
+      this.usuarioVisualizado.photoURL = usuario.photoURL;
+      this.usuarioVisualizado.email = usuario.email;
+      this.usuarioVisualizado.emailVerified = usuario.emailVerified;
+    }
 }

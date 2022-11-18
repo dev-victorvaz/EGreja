@@ -20,7 +20,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AuthService } from './shared/services/auth.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

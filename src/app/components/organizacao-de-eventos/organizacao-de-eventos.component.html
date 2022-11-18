@@ -1,7 +1,7 @@
 <div class="main">
-    <h2>Domingo:</h2>
     <button *ngIf="isAdmin" (click)="criarDomingo(true)">Novo evento no domingo</button>
-    <div class="quadro">
+    <div *ngIf="listaDomingo.length > 0" class="quadro">
+        <h2>Domingo:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoDomingo">
             <br>
             <label>Conteúdo:</label>
@@ -22,10 +22,11 @@
             <button type="button" (click)="excluirDomingo(domingo.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
-
-    <h2>Segunda-feira:</h2>
+    <br *ngIf="listaDomingo.length > 0">
+    
     <button *ngIf="isAdmin" (click)="criarSegunda(true)">Novo evento na segunda-feira</button>
-    <div class="quadro">
+    <div *ngIf="listaSegunda.length > 0" class="quadro">
+        <h2 >Segunda-feira:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoSegunda">
             <br>
             <label>Conteúdo:</label>
@@ -46,10 +47,11 @@
             <button type="button" (click)="excluirSegunda(segunda.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
+    <br *ngIf="listaSegunda.length > 0">
 
-    <h2>Terça-feira:</h2>
     <button *ngIf="isAdmin" (click)="criarTerca(true)">Novo evento na terça-feira</button>
-    <div class="quadro">
+    <div *ngIf="listaTerca.length > 0" class="quadro">
+        <h2>Terça-feira:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoTerca">
             <br>
             <label>Conteúdo:</label>
@@ -70,10 +72,11 @@
             <button type="button" (click)="excluirTerca(terca.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
+    <br *ngIf="listaTerca.length > 0" class="quadro">
 
-    <h2>Quarta-feira:</h2>
     <button *ngIf="isAdmin" (click)="criarQuarta(true)">Novo evento na quarta-feira</button>
-    <div class="quadro">
+    <div *ngIf="listaQuarta.length > 0" class="quadro">
+        <h2>Quarta-feira:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoQuarta">
             <br>
             <label>Conteúdo:</label>
@@ -94,10 +97,11 @@
             <button type="button" (click)="excluirQuarta(quarta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
+    <br *ngIf="listaQuarta.length > 0">
 
-    <h2>Quinta-feira:</h2>
     <button *ngIf="isAdmin" (click)="criarQuinta(true)">Novo evento na quinta-feira</button>
-    <div class="quadro">
+    <div *ngIf="listaQuinta.length > 0" class="quadro">
+        <h2>Quinta-feira:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoQuinta">
             <br>
             <label>Conteúdo:</label>
@@ -118,10 +122,11 @@
             <button type="button" (click)="excluirQuinta(quinta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
+    <br *ngIf="listaQuinta.length > 0">
 
-    <h2>Sexta-feira:</h2>
     <button *ngIf="isAdmin" (click)="criarSexta(true)">Novo evento na sexta-feira</button>
-    <div class="quadro">
+    <div *ngIf="listaSexta.length > 0" class="quadro">
+        <h2>Sexta-feira:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoSexta">
             <br>
             <label>Conteúdo:</label>
@@ -142,10 +147,11 @@
             <button type="button" (click)="excluirSexta(sexta.id)" *ngIf="isAdmin">Excluir</button>
         </div>
     </div>
+    <br *ngIf="listaSexta.length > 0">
 
-    <h2>Sábado:</h2>
     <button *ngIf="isAdmin" (click)="criarSabado(true)">Novo evento na sábado</button>
-    <div class="quadro">
+    <div *ngIf="listaSabado.length > 0" class="quadro">
+        <h2>Sábado:</h2>
         <div class="add" *ngIf="isAdmin" [hidden]="!novoSabado">
             <br>
             <label>Conteúdo:</label>

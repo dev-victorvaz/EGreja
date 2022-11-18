@@ -1,14 +1,27 @@
 <div class="main">
-    <h1>Lista de Membros</h1>
-    <div class="quadro-de-avisos">
-        <div class="lista-de-avisos" *ngFor="let usuario of listaMembro">
-            <table>
-                <tr>
+    <div [hidden]="!verPerfilVariavel">
+        <h1>Perfil de Usuário</h1>
+        <div>
+            <img class="photo-profile" src="{{(usuarioVisualizado.photoURL) ? usuarioVisualizado.photoURL : '/assets/dummy-user.png'}}"
+                alt="{{usuarioVisualizado.displayName}}" height="256">
+            <div class="media-body">
+                <h1><strong>{{(usuarioVisualizado.displayName) ? usuarioVisualizado.displayName : 'usuarioVisualizado'}}</strong></h1>
+                <p>E-mail: <strong>{{usuarioVisualizado.email}}</strong></p>
+                <button (click)="verPerfil(false)">Voltar</button>
+            </div>
+        </div>
+    </div>
+    <div class="quadro-de-membros" [hidden]="verPerfilVariavel">
+        <h1>Lista de Membros</h1>
+            <table class="lista-de-membros">
+                <tr *ngFor="let usuario of listaMembro">
                     <th><img class="photo" src="{{(usuario.photoURL) ? usuario.photoURL : '/assets/dummy-user.png'}}" alt="{{usuario.displayName}}" height="64"></th>
                     <th class="usuario-nome">{{usuario.displayName}}</th>
-                    <th><button *ngIf="isAdmin" (click)="authService.setManager(usuario.uid)">Tornar Admin</button></th>
+                    <th>
+                        <button (click)="visualizarPerfil(usuario)">Ver Perfil</button>
+                        <button *ngIf="isAdmin" (click)="authService.setManager(usuario.uid)">Tornar Admin</button>
+                    </th>
                 </tr>
             </table>
-        </div>
     </div>
 </div>
