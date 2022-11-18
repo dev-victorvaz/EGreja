@@ -1,21 +1,21 @@
 <div class="main">
-    <h1>Quadro de avisos</h1>
-    <button *ngIf="isAdmin" (click)="publicarNovoAviso()">Novo Aviso</button>
+    <h1>Notícias</h1>
+    <button *ngIf="isAdmin" (click)="publicarNovoAviso()">Nova notícia</button>
     <div class="quadro-de-avisos">
         <div class="addAvisos" *ngIf="isAdmin" [hidden]="!novoTopico">
             <br>
             <label>Título:</label>
-            <input type="text" id="tituloaviso" name="tituloaviso" placeholder="Coloque o título do aviso aqui." [(ngModel)]="aviso.titulo" />
+            <input type="text" id="tituloaviso" name="tituloaviso" placeholder="Coloque o título do notícia aqui." [(ngModel)]="aviso.titulo" />
             <br>
             <label>Conteúdo:</label>
             <br>
-            <textarea type="text" id="textoaviso" name="textoaviso" placeholder="Coloque o conteúdo do aviso aqui." [(ngModel)]="aviso.texto"></textarea>
+            <textarea type="text" id="textoaviso" name="textoaviso" placeholder="Coloque o conteúdo do notícia aqui." [(ngModel)]="aviso.texto"></textarea>
             <br>
             <button (click)="postar()">{{avisobutton}}</button>
             <button (click)="cancelarAviso()">Cancelar</button>
         </div>
         
-        <div class="lista-de-avisos" *ngFor="let aviso of listaAviso">
+        <div class="lista-de-avisos" *ngFor="let aviso of listaAviso.reverse()">
             <h2 class="aviso-titulo">{{aviso.titulo}}</h2>
             <p class="aviso-texto">{{aviso.texto}}</p>
             <button type="button" routerLink="/avisos/{{aviso.id}}" *ngIf="isAdmin">Editar</button>

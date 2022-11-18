@@ -2,3 +2,11 @@ img.photo {
     width: 128px;
     height: 128px;
 }
+
+#table2 {
+    width: 100%;
+}
+
+h1.h1titulo {
+    text-align: center;
+}

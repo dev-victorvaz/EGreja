@@ -2,34 +2,38 @@
   <div class="container-fluid">
     <div class="row">
       <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Perfil de Usuário</h1>
+      <main role="main">
+        <div>
+          <div>
+            <h1 class="h1titulo">Perfil de Usuário</h1>
           </div>
           <!-- Show user data when logged in -->
-          <div class="row" *ngIf="authService.userData as user">
-            <div class="col-md-12">
-              <div class="media">
-                <img class="photo" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                  alt="{{user.displayName}}">
-                <div class="media-body">
-                  <div [hidden]="editarNome">
-                    <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                    <button (click)="editarNomeFuncao(true)">Alterar nome e foto</button>
-                  </div>
-
-                  <div [hidden]="!editarNome">
-                    <label>Foto:</label>
-                    <input type="text" id="nomee" name="nomee" placeholder="Coloque a URL da foto aqui." [(ngModel)]="this.foto"/>
-                    <br>
-                    <label>Nome:</label>
-                    <input type="text" id="nomee" name="nomee" placeholder="Coloque a alteção do nome aqui." [(ngModel)]="this.nome"/>
-                    <br>
-                    <button (click)="atualizarPerfil()">Salvar</button>
-                    <button (click)="editarNomeFuncao(false)">Cancelar</button>
-                  </div>
-
+          <div *ngIf="authService.userData as user">
+            <div>
+              <div>
+                <table id="table2">
+                  <th>
+                    <img class="photo" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                    alt="{{user.displayName}}">
+                    <div [hidden]="editarNome">
+                      <h1><strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+                      <button (click)="editarNomeFuncao(true)">Alterar nome e foto</button>
+                    </div>
+  
+                    <div [hidden]="!editarNome">
+                      <label>Foto:</label>
+                      <input type="text" id="nomee" name="nomee" placeholder="Coloque a URL da foto aqui." [(ngModel)]="this.foto"/>
+                      <br>
+                      <label>Nome:</label>
+                      <input type="text" id="nomee" name="nomee" placeholder="Coloque a alteção do nome aqui." [(ngModel)]="this.nome"/>
+                      <br>
+                      <button (click)="atualizarPerfil()">Salvar</button>
+                      <button (click)="editarNomeFuncao(false)">Cancelar</button>
+                    </div>
+                  </th>
+                </table>
+                
+                <div>
                   <div [hidden]="editarEmail">
                     <p>E-mail: <strong>{{user.email}}</strong></p>
                     <button (click)="editarEmailFuncao(true)">Alterar e-mail</button>
