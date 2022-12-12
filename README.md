@@ -4,8 +4,8 @@ Este projeto foi feito com [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Desenvolvedores
 
-Victor Vaz
-Raul Augusto
+Victor Vaz. 
+Raul Augusto. 
 Maycon Santos
 
 ## Documento de Usabilidade
